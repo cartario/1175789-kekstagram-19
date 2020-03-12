@@ -29,7 +29,7 @@
 
   var generatePhoto = function (total) {
 
-    var photos = [];
+    var array = [];
     for (var i = 0; i < total; i++) {
       var photo =
       {
@@ -38,19 +38,25 @@
         likes: getRandomInt(i, 100),
         comments: {
           avatar: 'img/avatar-' + i + '.svg',
-          message: MESSAGES[i],
-          name: NAMES[i]
+          message: MESSAGES[getRandomInt(0, MESSAGES.length)],
+          name: NAMES[getRandomInt(0, NAMES.length)]
         }
       };
 
 
-      photos.push(photo);
+      array.push(photo);
     }
 
-    return photos;
+    return array;
 
   };
 
   generatePhoto(TOTAL_PHOTOS);
+
+  // var photos = generatePhoto(TOTAL_PHOTOS);
+
+  // photos.forEach(function (it) {
+  //   console.log(it);
+  // });
 
 })();
